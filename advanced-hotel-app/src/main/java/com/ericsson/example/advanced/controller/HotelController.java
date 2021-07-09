@@ -18,11 +18,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ericsson.example.advanced.model.Hotel;
-import com.ericsson.example.advanced.repository.HotelRepository;
 import com.ericsson.example.advanced.service.HotelRepositoryService;
 
 /**
- * @author ezhsanc
+ * @author Sandipan Chakraborty
  *
  *Purpose : This is the RestController class of the Hotel application.
  */
@@ -33,6 +32,7 @@ public class HotelController {
 	@Autowired
 	private HotelRepositoryService hotelRepositoryService;
 
+	@SuppressWarnings("unchecked")
 	@GetMapping("/all")
 	public <T> ResponseEntity<T> listAllHotels() {
 		final List<Hotel> findAllHotel = hotelRepositoryService.findAllHotels();
