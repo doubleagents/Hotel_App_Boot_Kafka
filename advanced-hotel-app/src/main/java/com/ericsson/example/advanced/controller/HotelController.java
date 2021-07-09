@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -17,13 +18,14 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.ericsson.example.advanced.builder.ResponseEntityBuilder;
 import com.ericsson.example.advanced.model.Hotel;
 import com.ericsson.example.advanced.service.HotelRepositoryService;
 
 /**
  * @author Sandipan Chakraborty
  *
- *Purpose : This is the RestController class of the Hotel application.
+ * Purpose : This is the RestController class of the Hotel application.
  */
 @RestController
 @RequestMapping("/hotels")
@@ -32,40 +34,40 @@ public class HotelController {
 	@Autowired
 	private HotelRepositoryService hotelRepositoryService;
 
-	@SuppressWarnings("unchecked")
 	@GetMapping("/all")
-	public <T> ResponseEntity<T> listAllHotels() {
+	public ResponseEntity<?> listAllHotels() {
 		final List<Hotel> findAllHotel = hotelRepositoryService.findAllHotels();
 
-		return (ResponseEntity<T>) ResponseEntity.ok(findAllHotel);
+		return ResponseEntityBuilder.buildAndReturnOkResponse(findAllHotel);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<Optional<Hotel>> findHotelByID(@PathVariable("id") String id) {
+	public ResponseEntity<?> findHotelByID(@PathVariable("id") String id) {
 
 		final Optional<Hotel> findById = hotelRepositoryService.findHotelById(id);
 
-		return ResponseEntity.ok().body(findById);
+		return ResponseEntityBuilder.buildAndReturnOkResponse(findById);
 	}
 
 	@PutMapping
-	public ResponseEntity<? extends String> insert(@RequestBody Hotel hotel) {
+	public ResponseEntity<?> insert(@RequestBody Hotel hotel) {
 		hotelRepositoryService.addNewHotel(hotel);
 
-		return ResponseEntity.ok().body("Hotel Stored");
+		return ResponseEntityBuilder.buildAndReturnAcceptedResponse("Hotel Details Saved");
+					
 	}
 
 	@PostMapping
-	public ResponseEntity<? extends String> update(@RequestBody Hotel hotel) {
+	public ResponseEntity<?> update(@RequestBody Hotel hotel) {
 		hotelRepositoryService.updateHotelDetails(hotel);
 
-		return ResponseEntity.ok().body("Hotel details updated");
+		return ResponseEntityBuilder.buildAndReturnAcceptedResponse("Hotel Details Updated");
 	}
 
 	@DeleteMapping("/{id}")
-	public ResponseEntity<? extends String> delete(@PathVariable("id") String id) {
+	public ResponseEntity<?> delete(@PathVariable("id") String id) {
 		this.hotelRepositoryService.deleteHotelById(id);
 
-		return ResponseEntity.ok().body("Hotel details deleted");
+		return ResponseEntityBuilder.buildAndReturnAcceptedResponse("Hotel Details Deleted");
 	}
 }
