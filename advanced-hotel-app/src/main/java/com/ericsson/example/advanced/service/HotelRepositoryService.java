@@ -12,7 +12,9 @@ import com.ericsson.example.advanced.model.Hotel;
 import com.ericsson.example.advanced.repository.HotelRepository;
 
 /**
- * @author ezhsanc
+ * @author Sandipan Chakraborty
+ * 
+ * This is a Service bean for Hotel Repository services
  *
  */
 

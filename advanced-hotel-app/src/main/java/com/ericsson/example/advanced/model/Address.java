@@ -10,7 +10,6 @@ public class Address {
 	 * @param country
 	 */
 	public Address(String city, String country) {
-		super();
 		this.city = city;
 		this.country = country;
 	}
