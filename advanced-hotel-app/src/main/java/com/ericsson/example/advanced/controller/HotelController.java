@@ -33,6 +33,10 @@ public class HotelController {
 	@Autowired
 	private HotelRepositoryService hotelRepositoryService;
 
+	/**
+	 * This API returns List of the hotels available in the Database
+	 * @return
+	 */
 	@GetMapping("/all")
 	public ResponseEntity<?> listAllHotels() {
 		final List<Hotel> findAllHotel = hotelRepositoryService.findAllHotels();
@@ -40,6 +44,12 @@ public class HotelController {
 		return ResponseEntityBuilder.buildAndReturnOkResponse(findAllHotel);
 	}
 
+	/**
+	 * This API returns the hotel corresponding to the the ID supplied to it
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@GetMapping("/{id}")
 	public ResponseEntity<?> findHotelByID(@PathVariable("id") String id) {
 
@@ -48,6 +58,12 @@ public class HotelController {
 		return ResponseEntityBuilder.buildAndReturnOkResponse(findById);
 	}
 
+	/**
+	 * This API inserts a new Hotel details in the Database
+	 * 
+	 * @param hotel
+	 * @return
+	 */
 	@PutMapping
 	public ResponseEntity<?> insert(@RequestBody Hotel hotel) {
 		hotelRepositoryService.addNewHotel(hotel);
@@ -56,6 +72,12 @@ public class HotelController {
 					
 	}
 
+	/**
+	 * This API updates the details of an existing hotel in the Database
+	 * 
+	 * @param hotel
+	 * @return
+	 */
 	@PostMapping("/{update-details}")
 	public ResponseEntity<?> update(@RequestBody Hotel hotel) {
 		hotelRepositoryService.updateHotelDetails(hotel);
@@ -63,6 +85,12 @@ public class HotelController {
 		return ResponseEntityBuilder.buildAndReturnAcceptedResponse("Hotel Details Updated");
 	}
 
+	/**
+	 * This API deletes Hotel details corresponding to the supplied hotel ID
+	 * 
+	 * @param id
+	 * @return
+	 */
 	@DeleteMapping("/{id}")
 	public ResponseEntity<?> delete(@PathVariable("id") String id) {
 		this.hotelRepositoryService.deleteHotelById(id);
