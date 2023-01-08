@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+import com.ericsson.example.advanced.model.Amenities;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -30,7 +31,8 @@ public class DbSeeder implements CommandLineRunner {
                 Arrays.asList(
                         new Review("Sandipan C", 8, false),
                         new Review("Sandipan M", 7, true)
-                )
+                ),
+                new Amenities(true,true,true,true,true)
         );
 
         Hotel ibis = new Hotel(
@@ -39,14 +41,16 @@ public class DbSeeder implements CommandLineRunner {
                 new Address("London", "United Kingdom"),
                 Arrays.asList(
                         new Review("Teddy", 9, true)
-                )
+                ),
+                new Amenities(true,true,false,true,false)
         );
 
         Hotel sofitel = new Hotel(
                 "Sofitel",
                 200,
                 new Address("Rome", "Italy"),
-                new ArrayList<>()
+                new ArrayList<>(),
+                new Amenities(true,false,false,true,true)
         );
 
         // drop all hotels

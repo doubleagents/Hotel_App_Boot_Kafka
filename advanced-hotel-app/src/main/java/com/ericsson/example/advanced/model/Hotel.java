@@ -22,22 +22,40 @@ public class Hotel {
 	private int price;
 	private Address address;
 	private List<Review> reviews;
-	
-	
-	
+
+	private Amenities amenities;
+
+
+	public Amenities getAmenities() {
+		return amenities;
+	}
+
+	public void setReviews(List<Review> reviews) {
+		this.reviews = reviews;
+	}
+
+	public List<Review> getReviews() {
+		return reviews;
+	}
+
+	public void setAmenities(Amenities amenities) {
+		this.amenities = amenities;
+	}
+
 	/**
-	 * @param hotelId
 	 * @param name
 	 * @param price
 	 * @param address
 	 * @param review
+	 *
 	 */
-	public Hotel(String name, int price, Address address, List<Review> review) {
+	public Hotel(String name, int price, Address address, List<Review> review,Amenities amenities) {
 		
 		this.name = name;
 		this.price = price;
 		this.address = address;
 		this.reviews = review;
+		this.amenities = amenities;
 	}
 	
 	protected Hotel() {

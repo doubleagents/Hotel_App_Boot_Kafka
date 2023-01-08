@@ -6,6 +6,7 @@ package com.ericsson.example.advanced.service;
 import java.util.List;
 import java.util.Optional;
 
+import com.ericsson.example.advanced.model.Amenities;
 import org.springframework.stereotype.Service;
 
 import com.ericsson.example.advanced.model.Hotel;
@@ -47,5 +48,24 @@ public class HotelRepositoryService {
 
 	public void addNewHotel(Hotel hotel) {
 		this.hotelRepository.insert(hotel);
+	}
+
+	public Optional<List<Hotel>> findHotelByCity(String city) {
+		return null;
+	}
+
+	public Optional<Hotel> findHotelByRating(String rating) {
+
+		return null;
+	}
+
+	public Optional<List<Hotel>> findHotelByPriceRange(String startprice, String limitprice) {
+
+		return null;
+	}
+
+	public Optional<List<Hotel>> findHotelByAmenities(Amenities amenities) {
+
+		return null;
 	}
 }
