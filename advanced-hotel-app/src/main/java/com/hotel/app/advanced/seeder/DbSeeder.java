@@ -1,17 +1,17 @@
-package com.ericsson.example.advanced.seeder;
+package com.hotel.app.advanced.seeder;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import com.ericsson.example.advanced.model.Amenities;
+import com.hotel.app.advanced.model.Amenities;
+import com.hotel.app.advanced.model.Address;
+import com.hotel.app.advanced.model.Hotel;
+import com.hotel.app.advanced.repository.HotelRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
-import com.ericsson.example.advanced.model.Address;
-import com.ericsson.example.advanced.model.Hotel;
-import com.ericsson.example.advanced.model.Review;
-import com.ericsson.example.advanced.repository.HotelRepository;
+import com.hotel.app.advanced.model.Review;
 
 @Component
 public class DbSeeder implements CommandLineRunner {

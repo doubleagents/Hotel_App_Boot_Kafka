@@ -1,9 +1,9 @@
-package com.ericsson.example.advanced.controller;
+package com.hotel.app.advanced.controller;
 
-import com.ericsson.example.advanced.builder.ResponseEntityBuilder;
-import com.ericsson.example.advanced.model.Amenities;
-import com.ericsson.example.advanced.model.Hotel;
-import com.ericsson.example.advanced.service.HotelRepositoryService;
+import com.hotel.app.advanced.builder.ResponseEntityBuilder;
+import com.hotel.app.advanced.model.Amenities;
+import com.hotel.app.advanced.model.Hotel;
+import com.hotel.app.advanced.service.HotelRepositoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

@@ -8,7 +8,7 @@
 		<version>2.5.2</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.ericsson.example</groupId>
+	<groupId>com.hotel.app</groupId>
 	<artifactId>advanced-hotel-app</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>advanced-hotel-app</name>
@@ -61,6 +61,11 @@
 			<artifactId>lombok</artifactId>
 			<version>1.18.20</version>
 			<!-- <scope>provided</scope>-->
+		</dependency>
+		<dependency>
+			<groupId>org.apache.kafka</groupId>
+			<artifactId>kafka-clients</artifactId>
+			<version>3.2.0</version>
 		</dependency>
 	</dependencies>
 	<dependencyManagement>

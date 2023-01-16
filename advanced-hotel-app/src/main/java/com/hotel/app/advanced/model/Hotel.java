@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ericsson.example.advanced.model;
+package com.hotel.app.advanced.model;
 
 import java.util.ArrayList;
 import java.util.List;

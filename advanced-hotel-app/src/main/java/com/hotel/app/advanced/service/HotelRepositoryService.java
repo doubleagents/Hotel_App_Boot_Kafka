@@ -1,16 +1,18 @@
 /**
  * 
  */
-package com.ericsson.example.advanced.service;
+package com.hotel.app.advanced.service;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.ericsson.example.advanced.model.Amenities;
+import com.hotel.app.advanced.kafka.producer.KafkaProducerService;
+import com.hotel.app.advanced.model.Amenities;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.ericsson.example.advanced.model.Hotel;
-import com.ericsson.example.advanced.repository.HotelRepository;
+import com.hotel.app.advanced.model.Hotel;
+import com.hotel.app.advanced.repository.HotelRepository;
 
 /**
  * @author Sandipan Chakraborty
@@ -23,9 +25,13 @@ import com.ericsson.example.advanced.repository.HotelRepository;
 public class HotelRepositoryService {
 
 	private HotelRepository hotelRepository;
-	
-	public HotelRepositoryService(HotelRepository hotelRepository) {
+
+	private KafkaProducerService kafkaService;
+
+	@Autowired
+	public HotelRepositoryService(HotelRepository hotelRepository,KafkaProducerService kafkaService) {
 		this.hotelRepository = hotelRepository;
+		this.kafkaService = kafkaService;
 	}
 	
 	public List<Hotel> findAllHotels() {
@@ -47,7 +53,11 @@ public class HotelRepositoryService {
 	}
 
 	public void addNewHotel(Hotel hotel) {
-		this.hotelRepository.insert(hotel);
+		Hotel returnHotelData = this.hotelRepository.insert(hotel);
+
+		this.kafkaService.pushToTopic(returnHotelData);
+
+
 	}
 
 	public Optional<List<Hotel>> findHotelByCity(String city) {

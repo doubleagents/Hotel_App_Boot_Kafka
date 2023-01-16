@@ -1,7 +1,7 @@
 /**
  * 
  */
-package com.ericsson.example.advanced.swagger;
+package com.hotel.app.advanced.swagger;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -25,7 +25,7 @@ public class SwaggerConfig {
 	   public Docket productApi() {
 	      return new Docket(DocumentationType.SWAGGER_2)
 	    		  		.select()
-	    		  		.apis(RequestHandlerSelectors.basePackage("com.ericsson.example.advanced.controller"))
+	    		  		.apis(RequestHandlerSelectors.basePackage("com.hotel.app.advanced.controller"))
 	    		  		.build();
 	   }
 		

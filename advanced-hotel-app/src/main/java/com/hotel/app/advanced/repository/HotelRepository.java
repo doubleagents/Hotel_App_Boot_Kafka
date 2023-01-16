@@ -1,8 +1,8 @@
-package com.ericsson.example.advanced.repository;
+package com.hotel.app.advanced.repository;
 
 import org.springframework.data.mongodb.repository.MongoRepository;
 
-import com.ericsson.example.advanced.model.Hotel;
+import com.hotel.app.advanced.model.Hotel;
 
 public interface HotelRepository extends MongoRepository<Hotel, String> {
 	

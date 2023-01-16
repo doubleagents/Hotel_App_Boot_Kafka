@@ -1,4 +1,4 @@
-package com.ericsson.example.advanced.builder;
+package com.hotel.app.advanced.builder;
 
 import org.springframework.http.ResponseEntity;
 
