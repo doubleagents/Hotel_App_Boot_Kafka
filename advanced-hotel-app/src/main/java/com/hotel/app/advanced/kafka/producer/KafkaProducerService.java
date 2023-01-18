@@ -17,7 +17,7 @@ public class KafkaProducerService {
     }
     public void pushToTopic(Hotel hotel){
 
-        createAndPush(KafkaConstants.HOTEL_TOPIC,hotel.getHotelId(),hotel.toString());
+        createAndPush(this.producerConfig.getHOTEL_TOPIC(),hotel.getHotelId(),hotel.toString());
     }
 
     private void createAndPush(String topic,String key,String value){
