@@ -1,5 +1,6 @@
 package com.hotel.app.advanced.kafka.producer;
 
+import lombok.Data;
 import org.apache.kafka.clients.producer.*;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.springframework.context.annotation.Bean;
@@ -8,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import java.util.Properties;
 
 @Configuration
+@Data
 public class KafkaProducerConfig {
 
 
@@ -17,7 +19,7 @@ public class KafkaProducerConfig {
     public KafkaProducerConfig() {
         this.props = new Properties();
         loadProperties();
-        createProducer();
+        this.producer = new KafkaProducer(this.props);
     }
 
 
@@ -29,16 +31,5 @@ public class KafkaProducerConfig {
         this.props.put(ProducerConfig.ACKS_CONFIG,KafkaConstants.ACKS);
 
     }
-
-
-    public KafkaProducer createProducer(){
-        this.producer = new KafkaProducer(this.props);
-        return producer;
-    }
-
-
-
-
-
 
 }

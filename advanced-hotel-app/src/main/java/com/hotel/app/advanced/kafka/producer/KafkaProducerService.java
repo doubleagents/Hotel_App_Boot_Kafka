@@ -22,7 +22,7 @@ public class KafkaProducerService {
 
     private void createAndPush(String topic,String key,String value){
         ProducerRecord<String,String> record = new ProducerRecord<String,String>(topic,key,value);
-        KafkaProducer producer = this.producerConfig.createProducer();
+        KafkaProducer producer = this.producerConfig.getProducer();
         producer.send(record, new ProducerCallback());
 
         producer.flush();
