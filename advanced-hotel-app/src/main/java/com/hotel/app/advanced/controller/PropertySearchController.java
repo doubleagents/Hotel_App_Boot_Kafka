@@ -29,18 +29,18 @@ public class PropertySearchController {
         return ResponseEntityBuilder.buildAndReturnOkResponse(findByCity);
     }
 
-    @PostMapping("/search/features")
+   /* @PostMapping("/search/features")
     public ResponseEntity<?> findHotelByFeatures(@RequestBody Amenities amenities) {
 
         final Optional<List<Hotel>> findById = hotelRepositoryService.findHotelByAmenities(amenities);
 
         return ResponseEntityBuilder.buildAndReturnOkResponse(findById);
-    }
+    }*/
 
     @GetMapping("/search/{rating}}")
     public ResponseEntity<?> findHotelByRating(@PathVariable("rating") String rating) {
 
-        final Optional<Hotel> findByRating = hotelRepositoryService.findHotelByRating(rating);
+        final Optional<List<Hotel>> findByRating = hotelRepositoryService.findHotelByRating(rating);
 
         return ResponseEntityBuilder.buildAndReturnOkResponse(findByRating);
     }

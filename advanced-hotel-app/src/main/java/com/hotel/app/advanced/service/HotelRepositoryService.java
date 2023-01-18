@@ -61,21 +61,23 @@ public class HotelRepositoryService {
 	}
 
 	public Optional<List<Hotel>> findHotelByCity(String city) {
-		return null;
+
+		return Optional.of(this.hotelRepository.findByCity(city));
 	}
 
-	public Optional<Hotel> findHotelByRating(String rating) {
+	public Optional<List<Hotel>> findHotelByRating(String rating) {
 
-		return null;
+		return Optional.of(this.hotelRepository.findByRating(rating));
 	}
 
 	public Optional<List<Hotel>> findHotelByPriceRange(String startprice, String limitprice) {
 
-		return null;
+		return Optional.of(this.hotelRepository.findByPriceBetween
+				(Integer.parseInt(startprice),Integer.parseInt(limitprice)));
 	}
 
-	public Optional<List<Hotel>> findHotelByAmenities(Amenities amenities) {
+	/*public Optional<List<Hotel>> findHotelByAmenities(Amenities amenities) {
 
 		return null;
-	}
+	}*/
 }
