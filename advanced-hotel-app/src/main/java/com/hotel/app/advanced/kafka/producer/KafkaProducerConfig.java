@@ -10,8 +10,6 @@ import java.util.Properties;
 @Configuration
 public class KafkaProducerConfig {
 
-    private static final String BOOTSTRAP_SERVER="localhost:9092";
-    private static final String ACKS="all";
 
     private Properties props;
     private KafkaProducer producer;
@@ -25,10 +23,10 @@ public class KafkaProducerConfig {
 
     public void loadProperties(){
 
-        this.props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,BOOTSTRAP_SERVER);
+        this.props.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,KafkaConstants.BOOTSTRAP_SERVER);
         this.props.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         this.props.put(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
-        this.props.put(ProducerConfig.ACKS_CONFIG,ACKS);
+        this.props.put(ProducerConfig.ACKS_CONFIG,KafkaConstants.ACKS);
 
     }
 

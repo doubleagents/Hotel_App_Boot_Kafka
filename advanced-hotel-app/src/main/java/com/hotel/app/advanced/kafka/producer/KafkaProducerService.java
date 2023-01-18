@@ -9,8 +9,6 @@ import org.springframework.stereotype.Service;
 @Service
 public class KafkaProducerService {
 
-    private static final String HOTEL_TOPIC="hotel_analytics";
-
     private KafkaProducerConfig producerConfig;
 
     @Autowired
@@ -19,7 +17,7 @@ public class KafkaProducerService {
     }
     public void pushToTopic(Hotel hotel){
 
-        createAndPush(HOTEL_TOPIC,hotel.getHotelId(),hotel.toString());
+        createAndPush(KafkaConstants.HOTEL_TOPIC,hotel.getHotelId(),hotel.toString());
     }
 
     private void createAndPush(String topic,String key,String value){
