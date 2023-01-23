@@ -1,11 +1,10 @@
 package com.hotel.app.advanced.kafka.producer;
 
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-public class KafkaConstants {
+public class KafkaProducerConstants {
 
     @Value("${kafka.bootstrap.server}")
     private String BOOTSTRAP_SERVER;
@@ -16,7 +15,7 @@ public class KafkaConstants {
     @Value("${kafka.topic.hotel}")
     private String HOTEL_TOPIC;
 
-    public KafkaConstants(){
+    public KafkaProducerConstants(){
 
     }
 
